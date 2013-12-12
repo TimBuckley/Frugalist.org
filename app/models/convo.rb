@@ -1,7 +1,7 @@
 class Convo < ActiveRecord::Base
   attr_accessible :shower_user, :show_user
 
-  validates :shower_user, :show_user, presense: true
+  validates :shower_user, :show_user, presence: true
 
   has_many(
     :messages,
