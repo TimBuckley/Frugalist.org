@@ -1,0 +1,3 @@
+== Frugalist
+
+A social Mint app by Tim Buckley
