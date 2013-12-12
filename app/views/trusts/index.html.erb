@@ -1,0 +1,41 @@
+<h1>Trustees</h1>
+
+
+
+<h3>People whom you've entrusted (trustees):</h3>
+<% if @trustees.empty? %>
+<ul>
+	<li id="no-trustees">No Trustees Yet!</li>
+</ul>
+
+<form action="<%= trusts_url %>" method="post">
+	<input type="hidden" 
+	name="authenticity_token" 
+	value="<%= form_authenticity_token %>">
+	
+	<label for="new_trustee">New Trustee:</label>
+	<input type="text" name="trust[trustee]" value="" id="new_trustee">
+	<input type="submit" value="Add">
+</form>
+
+<% else %>
+	<% @trustees.each do |trustee| %>
+		<ul>
+			<li id="<%= trustee.username %>"><%= trustee.username %></li>
+		</ul>
+	<% end %>
+<% end %>
+
+<h3>People who have entrusted you (entrustors):</h3>
+<% if @trustees.empty? %>
+<ul>
+	<li id="no-trustees">No Trustees Yet!</li>
+</ul>
+
+<% else %>
+	<% @entrustors.each do |entrustor|  %>
+		<ul>
+			<li id="<%= entrustor.username %>"><%= entrustor.username %></li>
+		</ul>
+	<% end %>
+<% end %>

@@ -10,10 +10,6 @@ class TransactionsController < ApplicationController
     render :show
   end
 
-  def new
-    render :new
-  end
-
   def edit
     @transactions = current_user.transactions.all
     @transactions.sort! { |a,b| b.date <=> a.date }

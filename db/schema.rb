@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20131211221548) do
 
   create_table "trusts", :force => true do |t|
     t.integer  "entrustor_id", :null => false
-    t.integer  "trustee",      :null => false
+    t.integer  "trustee_id",   :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

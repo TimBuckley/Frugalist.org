@@ -15,12 +15,3 @@ test:
   timeout: 5000
   username: tbuckley
   password:
-
-production:
-  adapter: postgresql
-  database: frugalistas_project_prods
-  host: localhost
-  pool: 5
-  timeout: 5000
-  username: tbuckley
-  password:

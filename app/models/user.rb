@@ -30,6 +30,22 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
   )
+  
+  has_many(
+    :entrustors,
+    class_name: "Trust",
+    foreign_key: :trustee_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :trustees,
+    class_name: "Trust",
+    foreign_key: :entrustor_id,
+    primary_key: :id
+  )
+  
+  # has_many :username, through: , source: 
 
 
   def self.find_by_credentials(email, password)
