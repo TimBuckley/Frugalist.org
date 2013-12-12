@@ -1,11 +1,11 @@
-# development:
-#   adapter: postgresql
-#   database: frugalistas_project_dev
-#   host: localhost
-#   pool: 5
-#   timeout: 5000
-#   username: timbuckley
-#   password:
+development:
+  adapter: postgresql
+  database: frugalistas_project_dev
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: tbuckley
+  password:
 
 test:
   adapter: postgresql
@@ -13,7 +13,7 @@ test:
   host: localhost
   pool: 5
   timeout: 5000
-  username: timbuckley
+  username: tbuckley
   password:
 
 production:
@@ -22,5 +22,5 @@ production:
   host: localhost
   pool: 5
   timeout: 5000
-  username: timbuckley
+  username: tbuckley
   password:

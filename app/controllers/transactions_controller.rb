@@ -41,10 +41,10 @@ class TransactionsController < ApplicationController
     unless @transaction.save
       flash[:errors] = @transaction.errors.full_messages
     end
-
+    
+    @transactions = current_user.transactions.all
     @transactions.sort! { |a,b| b.date <=> a.date }
     @transactions.sort! { |a,b| b.created_at <=> a.created_at }
-    @transactions = current_user.transactions.all
     render :index
   end
 
