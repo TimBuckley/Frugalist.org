@@ -43,9 +43,37 @@
 		<% user = User.find(entrustor.entrustor_id) %>
 		<tr id="<%= user.id %>">
 			<td>
-
 				<%= link_to user.username, trust_transactions_url(user.id) %>
 			</td>
 		</tr>
 	<% end %>
 <% end %>
+
+<% @entrustor_trans.each %>
+
+<h3><%= @entrustor.username %>'s transactions:</h3>
+
+<table>
+<tr>
+  <th>Date</th>
+  <th>Description</th>
+  <th>Amount</th>
+  <th>Category</th>
+</tr>
+<% @entrustor_trans.each do |tran| %>
+  <tr data-id="<%= tran.id %>">
+	  <td class="date">
+	    <%= tran.date %>
+	  </td>
+	  <td class="description">
+	    <%= tran.description %>
+	  </td>
+	  <td class="amount">
+	    <%= tran.amount %>
+	  </td>
+	  <td class="category">
+	    <%= tran.category %>
+	  </td>
+  </tr>
+<% end %>
+</table>

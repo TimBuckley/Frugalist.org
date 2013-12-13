@@ -2,13 +2,14 @@ Frugalistas::Application.routes.draw do
   resources :users, :only => [:create, :new, :show]
   resource :session, :only => [:create, :destroy, :new]
 
-  resources :messages, :only => [:create, :destroy, :new, :index, :show]
+  resources :convos do
+    resources :messages
+  end
+  resources :messages
 
   resources :transactions
   resources :trusts do 
-    member do
-      get 'trustee_detail'
-    end  
+    resource :transactions  
   end
 
   root :to => "users#show"

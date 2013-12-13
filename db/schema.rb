@@ -14,10 +14,9 @@
 ActiveRecord::Schema.define(:version => 20131211221548) do
 
   create_table "convos", :force => true do |t|
-    t.integer  "shower_user", :null => false
-    t.integer  "show_user",   :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "pairing",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "messages", :force => true do |t|

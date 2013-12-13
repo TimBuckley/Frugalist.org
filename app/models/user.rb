@@ -10,20 +10,6 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  belongs_to(
-    :shower_users,
-    class_name: "Convo",
-    foreign_key: :shower_user,
-    primary_key: :id
-  )
-
-  belongs_to(
-    :show_users,
-    class_name: "Convo",
-    foreign_key: :show_user,
-    primary_key: :id
-  )
-
   has_many(
     :transactions,
     class_name: "Transaction",
@@ -44,6 +30,21 @@ class User < ActiveRecord::Base
     foreign_key: :entrustor_id,
     primary_key: :id
   )
+  
+  belongs_to(
+    :author,
+    class_name: "User",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+  
+  belongs_to(
+    :recipient,
+    class_name: "User",
+    foreign_key: :recipient_id,
+    primary_key: :id
+  )
+  
   
   # has_many :username, through: , source: 
 

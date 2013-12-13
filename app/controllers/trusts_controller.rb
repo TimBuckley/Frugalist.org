@@ -37,7 +37,6 @@ class TrustsController < ApplicationController
     end
   end
   
-
   def show
     redirect_to trust_url()
   end

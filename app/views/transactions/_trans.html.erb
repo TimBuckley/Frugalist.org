@@ -7,12 +7,10 @@
   <th>Description</th>
   <th>Amount</th>
   <th>Category</th>
-  <th>Privacy</th>
   <th></th>
 </tr>
 <% user.transactions.each do |tran| %>
   <tr data-id="<%= tran.id %>">
-
 	  <td class="date">
 	    <%= tran.date %>
 	  </td>
@@ -22,18 +20,9 @@
 	  <td class="amount">
 	    <%= tran.amount %>
 	  </td>
-	
 	  <td class="category">
 	    <%= tran.category %>
 	  </td>
-
-	  <td class="privacy">
-	    <%= tran.privacy %>
-	  </td>
-			
   </tr>
 <% end %>
-
-</form>
-
 </table>

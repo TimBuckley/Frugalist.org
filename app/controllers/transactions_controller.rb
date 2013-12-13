@@ -7,6 +7,12 @@ class TransactionsController < ApplicationController
   end
 
   def show
+    @trustees = current_user.trustees
+    @entrustors = current_user.entrustors
+
+    @entrustor = User.find(params[:trust_id])
+    @entrustor_trans = Transaction.where(user_id: params[:trust_id], privacy: "shared")
+
     render :show
   end
 
