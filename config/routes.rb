@@ -6,7 +6,9 @@ Frugalistas::Application.routes.draw do
 
   resources :transactions
   resources :trusts do 
-    resource :user
+    member do
+      get 'trustee_detail'
+    end  
   end
 
   root :to => "users#show"

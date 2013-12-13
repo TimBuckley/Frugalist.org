@@ -39,14 +39,9 @@ class TrustsController < ApplicationController
   
 
   def show
-
     redirect_to trust_url()
   end
   
-  def edit
-    @transactions = current_user.transactions.all
-    render :index
-  end
 
   def destroy
     @trust = Trust.find_by_id(params[:id])
@@ -55,6 +50,10 @@ class TrustsController < ApplicationController
     @trustees = current_user.trustees
     @entrustors = current_user.entrustors
     redirect_to trusts_url
+  end
+  
+  def trustee_detail
+    
   end
   
 end

@@ -1,0 +1,5 @@
+<%= render "shared/sidebar" %>
+
+<% @convos.each do |convo| %>
+	<%= User.find(convo.show_user).username %>
+<% end %>

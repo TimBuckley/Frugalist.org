@@ -1,0 +1,15 @@
+<%= render "shared/sidebar" %>
+
+<%= render "shared/sidebar" %>
+
+<form action="<%= new_message_url %>" method="post">
+
+	<input type="hidden" 
+	name="authenticity_token" 
+	value="<%= form_authenticity_token %>">
+	
+	<label for="message">Message:</label>
+	<input type="textarea" name="message[body]" value="" id="message">
+	
+	<p><input type="submit" value="Send"></p>
+</form>
