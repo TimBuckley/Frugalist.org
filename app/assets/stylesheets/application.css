@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+
+
+button, h2, section, a, header, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: arial, sans-serif;
+  vertical-align: baseline;
+}
+
+
+
+nav {
+	float: left;
+	background: lightgreen;
+}
+
+section {
+	display: block;
+}

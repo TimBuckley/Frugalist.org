@@ -1,6 +1,6 @@
 <%= render "shared/sidebar" %>
 
-
+<section>
 
 <% @messages.each do |message| %>
 
@@ -11,3 +11,5 @@
 <% end %>
 
 <%= link_to "Send New Message", new_message_url %>
+
+</section>
