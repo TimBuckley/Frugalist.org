@@ -17,4 +17,6 @@ class Trust < ActiveRecord::Base
     primary_key: :id
   )
   
+  has_many :username, through: :users, source: :username 
+  
 end

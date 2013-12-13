@@ -1,12 +1,27 @@
-<h1>Trustees</h1>
+<%= render "shared/sidebar" %>
 
+<h3>Trustees</h3>
 
-
-<h3>People whom you've entrusted (trustees):</h3>
+<h4>People whom you've entrusted (trustees):</h4>
 <% if @trustees.empty? %>
-<ul>
-	<li id="no-trustees">No Trustees Yet!</li>
-</ul>
+	<p id="no-trustees">Ya gotta trust somebody...</p>
+<% else %>
+	<table>
+	<% @trustees.each do |trustee| %>
+		<% user = User.find(trustee.trustee_id) %>
+		<tr id="<%= user.id %>">
+			<td>
+				<%= user.username %>
+			</td>
+			<td class="remove_button">
+				<%= button_to "Remove", trust_url(trustee), method: :delete %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+<% end %>
+
+<br>
 
 <form action="<%= trusts_url %>" method="post">
 	<input type="hidden" 
@@ -18,24 +33,18 @@
 	<input type="submit" value="Add">
 </form>
 
-<% else %>
-	<% @trustees.each do |trustee| %>
-		<ul>
-			<li id="<%= trustee.username %>"><%= trustee.username %></li>
-		</ul>
-	<% end %>
-<% end %>
+<br>
 
-<h3>People who have entrusted you (entrustors):</h3>
-<% if @trustees.empty? %>
-<ul>
-	<li id="no-trustees">No Trustees Yet!</li>
-</ul>
-
+<h4>People who have entrusted you (entrustors):</h4>
+<% if @entrustors.empty? %>
+		<p id="no-entrustors">Nobody trusts you :-(</p>
 <% else %>
 	<% @entrustors.each do |entrustor|  %>
-		<ul>
-			<li id="<%= entrustor.username %>"><%= entrustor.username %></li>
-		</ul>
+		<% user = User.find(entrustor.entrustor_id) %>
+		<tr id="<%= user.id %>">
+			<td>
+				<%= user.username %>
+			</td>
+		</tr>
 	<% end %>
 <% end %>

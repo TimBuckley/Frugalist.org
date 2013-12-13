@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Frugalest</title>
+  <title>Frugalist</title>
   <!-- <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %> -->
   <%= csrf_meta_tags %>
@@ -10,6 +10,13 @@
 <body>
 	
 <header>
+	
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+	
 	<% if current_user.nil? %>
 	
 	<h1><%= link_to "The Frugalist",  new_session_url %></h1>
