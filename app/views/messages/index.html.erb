@@ -1,5 +1,13 @@
 <%= render "shared/sidebar" %>
 
-<% @convos.each do |convo| %>
-	<%= User.find(convo.show_user).username %>
+
+
+<% @messages.each do |message| %>
+
+	<h3>From: <%= message.author.username %>, To: <%= message.recipient.username %>, Date: <%= message.created_at %> </h3>
+	
+	<p><%= message.body %> <%= button_to "Delete", message_url(message.id), method: :delete %></p>
+	
 <% end %>
+
+<%= link_to "Send New Message", new_message_url %>
