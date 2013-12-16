@@ -24,6 +24,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'jquery-rails'
 gem 'figaro'
 gem 'pg'
+gem 'backbone-on-rails'
 
 
 gem 'nokogiri'
