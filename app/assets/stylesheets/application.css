@@ -22,11 +22,27 @@ button, h2, section, a, header, div {
   vertical-align: baseline;
 }
 
+body {
+	overflow: hidden; 
+}
 
+.logo{
+	
+}
+
+header {
+	
+}
+
+.head-right {
+	float:right;
+}
 
 nav {
 	float: left;
-	background: lightgreen;
+	background: #396539;
+  margin-bottom: -5000px; 
+  padding-bottom: 5000px; 
 }
 
 section {

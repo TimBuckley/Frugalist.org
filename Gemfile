@@ -20,4 +20,14 @@ end
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'jquery-rails'
+gem 'figaro'
 gem 'pg'
+
+gem 'nokogiri'
+gem 'addressable'
+
+require 'open-uri'
+require 'addressable/uri'
+
+gem "paperclip"
+gem "aws-sdk"

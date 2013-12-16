@@ -64,4 +64,15 @@ Frugalistas::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  config.paperclip_defaults = {
+        storage: :s3,
+        s3_credentials: {
+          bucket: 'frugalist-prod',
+          access_key_id: 'AKIAJZYEWKTXFFQL37GQ',
+          secret_access_key: '20pUBvJVLjHcZoAJXZxSgLsyosap4kRVbrFCKwjG',
+          s3_host_name: 's3-us-west-2.amazonaws.com' # or whatever your region host name is
+        }
+      }
+  
 end

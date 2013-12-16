@@ -34,4 +34,14 @@ Frugalistas::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.paperclip_defaults = {
+        storage: :s3,
+        s3_credentials: {
+          bucket: 'frugalist-dev',
+          access_key_id: 'AKIAJZYEWKTXFFQL37GQ',
+          secret_access_key: '20pUBvJVLjHcZoAJXZxSgLsyosap4kRVbrFCKwjG',
+          s3_host_name: 's3-us-west-2.amazonaws.com' # or whatever your region host name is
+        }
+      }
 end

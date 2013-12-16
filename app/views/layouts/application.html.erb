@@ -16,25 +16,30 @@
       <%= error %>
     <% end %>
   <% end %>
-	
+
 	<% if current_user.nil? %>
 	
-	<h1><%= link_to "The Frugalist",  new_session_url %></h1>
+	<h1 class="logo">
+		<a href="<%= new_session_url %>"><img src="https://s3.amazonaws.com/frugalist-dev/logo.png" width="275" height="91" alt="Logo"></a>
+	</h1>
 	
-	  <ul>
+	  <ul class="head-right">
 	    <li><%= link_to "Sign In", new_session_url %></li>
 	    <li><%= link_to "Sign Up", new_user_url %></li>
 	  </ul>
 	  
 	<% else %>
 
-	<h1><%= link_to "The Frugalist",  user_url(current_user) %></h1>
+	<h1 class="logo">
+		<a href="<%= user_url(current_user) %>"><img src="https://s3.amazonaws.com/frugalist-dev/logo.png" width="275" height="91" alt="Logo"></a>
+	</h1>
 
-	  <ul>
+	  <ul class="head-right">
 	    <li>Profile: <%= link_to current_user.username,  user_url(current_user) %></li>
 	    <li><%= button_to "Logout", session_url, :method => :delete %></li>
 	  </ul>
 	<% end %>
+	
 </header>
 
 
