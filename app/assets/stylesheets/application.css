@@ -12,30 +12,82 @@
  *= require_tree .
  */
 
-
-
-button, h2, section, a, header, div {
+h1, button, h2, section, a, header, div {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: arial, sans-serif;
-  vertical-align: baseline;
+  font-family: arial, sans-serif, inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+	
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 body {
 	overflow: hidden; 
 }
 
+h1 {
+/*	border: 2px solid black;*/
+	float: left;
+}
+
+.header-wrapper {
+	width: 900px;
+	margin: auto;
+/*  border-left: 3px solid #333;*/
+/*  border-right: 3px solid #333;*/
+}
+
+ul.head-right > li{
+	display: block;
+	margin: 10px 20px;
+}
+
+.main {
+	width: 800px;
+	margin: auto;
+}
+
 .logo{
-	
+	background:white;
+	margin: 0;
+/*	display: block;*/
 }
 
 header {
-	
+  background: #396539;
+  border-bottom: 3px solid #333;
+	display: block;
 }
 
 .head-right {
 	float:right;
+}
+
+.head-right > li {
+	position: relative;
+	float: right;
+	border: 1px solid grey;
+	padding: 5px;
+	background: lightgrey;
+	color: black;
+}
+
+ul, li {
+	list-style: none;
+}
+
+
+.sidebar-button {
+	color: white;
+	margin: 0;
+	line-indent:0;
 }
 
 nav {
@@ -46,5 +98,8 @@ nav {
 }
 
 section {
+	float:left;
 	display: block;
+	width: 400px;
+	margin: 0 20px 0 20px;
 }

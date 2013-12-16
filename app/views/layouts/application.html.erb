@@ -4,12 +4,15 @@
   <title>Frugalist</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "jquery.min" %>
+	<%= javascript_include_tag "highcharts" %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-	
-<header>
+
+<header class="header">
+	<div class="header-wrapper group">
 	
   <% if flash[:errors] && !flash[:errors].empty? %>
     <% flash[:errors].each do |error| %>
@@ -23,7 +26,7 @@
 		<a href="<%= new_session_url %>"><img src="https://s3.amazonaws.com/frugalist-dev/logo.png" width="275" height="91" alt="Logo"></a>
 	</h1>
 	
-	  <ul class="head-right">
+	  <ul class="head-right group">
 	    <li><%= link_to "Sign In", new_session_url %></li>
 	    <li><%= link_to "Sign Up", new_user_url %></li>
 	  </ul>
@@ -31,20 +34,25 @@
 	<% else %>
 
 	<h1 class="logo">
-		<a href="<%= user_url(current_user) %>"><img src="https://s3.amazonaws.com/frugalist-dev/logo.png" width="275" height="91" alt="Logo"></a>
+		<a href="<%= user_url(current_user) %>">
+			<img src="https://s3.amazonaws.com/frugalist-dev/logo.png" width="275" height="91" alt="Logo">
+		</a>
 	</h1>
 
-	  <ul class="head-right">
+	  <ul class="head-right group">
 	    <li>Profile: <%= link_to current_user.username,  user_url(current_user) %></li>
 	    <li><%= button_to "Logout", session_url, :method => :delete %></li>
 	  </ul>
 	<% end %>
 	
+</div>
+	
 </header>
 
-
+<section class="main">
 <%= yield %>
+</section>
 
-
+</div>
 </body>
 </html>

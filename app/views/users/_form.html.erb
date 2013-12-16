@@ -11,27 +11,30 @@
      name="authenticity_token"
      type="hidden"
      value="<%= form_authenticity_token %>">
+		 
+	 <div class="sign-up-form">
+		 
+	  <label for="user_username">Username</label>
+	  <input
+	     id="user_username"
+	     name="user[username]"
+	     type="text">
+	  <br>
 
-  <label for="user_username">Username</label>
-  <input
-     id="user_username"
-     name="user[username]"
-     type="text">
-  <br>
+	  <label for="user_email">Email</label>
+	  <input
+	     id="user_email"
+	     name="user[email]"
+	     type="text">
+	  <br>
 
-  <label for="user_email">Email</label>
-  <input
-     id="user_email"
-     name="user[email]"
-     type="text">
-  <br>
-
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password">
-  <br>
+	  <label for="user_password">Password</label>
+	  <input
+	     id="user_password"
+	     name="user[password]"
+	     type="password">
+	  <br>
+	</div>
 
   <input type="submit" value="<%= message %>">
 </form>
