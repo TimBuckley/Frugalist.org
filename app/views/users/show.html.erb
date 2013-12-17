@@ -6,21 +6,15 @@
 
 
 <script type="application/json" id="bootstrapped_trans_json">
-  { "trans": <%= @trans.to_json.html_safe %> }
+  { "trans": <%= @trans.to_json.html_safe %>,
+		"categories": <%= @categories.to_json.html_safe %>,
+		"dataSeries": <%= @data_series.to_json.html_safe %> }
 </script>
 
 <div id="category-spend" style="width:100%; height:400px;"></div>
 
 <script>
-	var transactions = JSON.parse($("#bootstrapped_trans_json").html());
-	
-	var categories = [];
-	_.each(transactions.trans, function(obj) {
-		categories.push(obj.category)
-	});
-	
-	categories = _.uniq(categories)
-	
+	var transData = JSON.parse($("#bootstrapped_trans_json").html());
 	
 	$(function () { 
 	    $('#category-spend').highcharts({
@@ -31,19 +25,14 @@
 	            text: 'Spending by Category'
 	        },
 	        xAxis: {
-	            categories: categories
+	            categories: transData.categories
 	        },
 	        yAxis: {
 	            title: {
 	                text: 'Amount Spent'
 	            }
 	        },
-					
-	        // series: [{name: 'a', data: [1,2,5,1,5]}]
-					series: [{name: 'a', data: [1,2,3,4,5,6,7,1]}, 
-									 {name: 'a', data: [5,7,3,2,5,3,4,9]},
-									 {name: 'c', data: [5,7,3,2,5,3,4,9]}]
-					
+					series: transData.dataSeries
 	    });
 	});
 </script>

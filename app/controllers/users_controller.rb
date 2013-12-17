@@ -18,13 +18,30 @@ class UsersController < ApplicationController
   end
 
   def show
-    @trans = Transaction.all
+    
+    valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
+    @trans = Transaction.where(user_id: valid_user_ids)
+    @categories = []
+    @trans.each {|e|  @categories << e.category if e.privacy == "shared"}
+    @categories.uniq!
 
-    #Transactions where 
-    #   1) user_id = current_user.id, OR
-    #   2) user_id = trustee_id
+    @data_series = []
+
+    valid_user_ids.each do |user_id|
+      data_hash = {}
+      data_hash[:name] = User.find(user_id).username
+      
+      spend_array = []
+      @categories.each do |cat|
+        cat_spend_array = @trans.where(user_id: user_id, category: cat, privacy: "shared").pluck("amount")
+        spend_array << cat_spend_array.inject(0.0){|sum,x| sum + x }
+      end
+      data_hash[:data] = spend_array
+      
+      @data_series << data_hash
+    end
     
-    
+
     if params.include?(:id)
       @user = User.find(params[:id])
     else
