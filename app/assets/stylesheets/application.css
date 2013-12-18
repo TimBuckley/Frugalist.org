@@ -16,7 +16,7 @@ h1, button, h2, section, a, header, div {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: arial, sans-serif, inherit;
+  font-family: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
 	
@@ -29,7 +29,12 @@ h1, button, h2, section, a, header, div {
 }
 
 body {
-	overflow: hidden; 
+	font-family: helvetica;
+	color: #3b3b3b;
+	background: #f3f3f3;
+/*	overflow: hidden; */
+	overflow: scroll;
+	min-height: 700px;
 }
 
 h1 {
@@ -46,7 +51,14 @@ h1 {
 
 ul.head-right > li{
 	display: block;
-	margin: 10px 20px;
+/*	margin: 10px 20px;*/
+}
+
+td.amount:before {
+ 	content: "$";
+}
+td.amount{
+	align: ".";
 }
 
 .main {
@@ -64,6 +76,7 @@ header {
   background: #396539;
   border-bottom: 3px solid #333;
 	display: block;
+	height: 90px;
 }
 
 .head-right {
@@ -74,13 +87,18 @@ header {
 	position: relative;
 	float: right;
 	border: 1px solid grey;
-	padding: 5px;
+/*	padding: 5px;*/
 	background: lightgrey;
 	color: black;
 }
 
 ul, li {
 	list-style: none;
+	text-indent: none;
+}
+
+nav > ul > li > a {
+	color: white;
 }
 
 
@@ -93,8 +111,8 @@ ul, li {
 nav {
 	float: left;
 	background: #396539;
-  margin-bottom: -5000px; 
-  padding-bottom: 5000px; 
+/*  margin-bottom: -5000px; */
+/*  padding-bottom: 5000px; */
 }
 
 section {
