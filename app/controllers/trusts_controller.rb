@@ -38,6 +38,7 @@ class TrustsController < ApplicationController
   end
   
   def show
+    # fail
     redirect_to trust_url()
   end
   

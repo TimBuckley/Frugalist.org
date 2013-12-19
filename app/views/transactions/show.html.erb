@@ -1,6 +1,6 @@
 <%= render "shared/sidebar" %>
 
-<section>
+<section class="content-body">
 
 <h3>Trustees</h3>
 
@@ -38,19 +38,21 @@
 <br>
 
 <h4>People who have entrusted you (entrustors):</h4>
-<% if @entrustors.empty? %>
-		<p id="no-entrustors">Nobody trusts you :-(</p>
-<% else %>
-	<% @entrustors.each do |entrustor|  %>
-		<% user = User.find(entrustor.entrustor_id) %>
-		<tr id="<%= user.id %>">
-			<td>
-				<%= link_to user.username, trust_transactions_url(user.id) %>
-			</td>
-		</tr>
-	<% end %>
-<% end %>
-
+	<div class="entrustors">
+		<% if @entrustors.empty? %>
+				<p id="no-entrustors">Nobody trusts you :-(</p>
+		<% else %>
+			<% @entrustors.each do |entrustor|  %>
+				<% user = User.find(entrustor.entrustor_id) %>
+				<tr id="<%= user.id %>">
+					<td>
+						<%= link_to user.username, trust_transactions_url(user.id) %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</div>
+	
 <h3><%= @entrustor.username %>'s transactions:</h3>
 
 <table>

@@ -2,12 +2,10 @@
 
 <table>
 <tr>
-  <th></th>
   <th>Date</th>
   <th>Description</th>
   <th>Amount</th>
   <th>Category</th>
-  <th></th>
 </tr>
 <% user.transactions.each do |tran| %>
   <tr data-id="<%= tran.id %>">
@@ -18,7 +16,7 @@
 	    <%= tran.description %>
 	  </td>
 	  <td class="amount">
-	    <%= tran.amount %>
+			<%= number_to_currency(tran.amount) %>
 	  </td>
 	  <td class="category">
 	    <%= tran.category %>

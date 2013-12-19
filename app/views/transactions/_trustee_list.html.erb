@@ -1,0 +1,19 @@
+
+
+<% if @trustees.empty? %>
+	<p id="no-trustees">Ya gotta trust somebody...</p>
+<% else %>
+	<table>
+	<% @trustees.each do |trustee| %>
+		<% user = User.find(trustee.trustee_id) %>
+		<tr id="<%= user.id %>">
+			<td>
+				<%= user.username %>
+			</td>
+			<td class="remove_button">
+				<%= button_to "Remove", trust_url(trustee), method: :delete %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+<% end %>

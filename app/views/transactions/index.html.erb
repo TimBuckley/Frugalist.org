@@ -7,13 +7,13 @@
 
 <table>
 <tr>
-  <th></th>
+
   <th>Date</th>
   <th>Description</th>
   <th>Amount</th>
   <th>Category</th>
   <th>Privacy</th>
-  <th></th>
+
 </tr>
 <% @transactions.each do |tran| %>
   <tr data-id="<%= tran.id %>">
@@ -24,7 +24,7 @@
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
 
-      <td class="blank"></td>
+
       <td class="date">
         <%= tran.date %>
       </td>
@@ -72,7 +72,6 @@
   name="authenticity_token"
   value="<%= form_authenticity_token %>">
 
-  <td class="blank"></td>
   <td class="date"><input type="date" name="transaction[date]"
   value="" id="date"></td>
   <td class="description"><input type="text" name="transaction[description]"

@@ -5,27 +5,14 @@
 <h3>Trustees</h3>
 
 <h4>People whom you've entrusted (trustees):</h4>
-<% if @trustees.empty? %>
-	<p id="no-trustees">Ya gotta trust somebody...</p>
-<% else %>
-	<table>
-	<% @trustees.each do |trustee| %>
-		<% user = User.find(trustee.trustee_id) %>
-		<tr id="<%= user.id %>">
-			<td>
-				<%= user.username %>
-			</td>
-			<td class="remove_button">
-				<%= button_to "Remove", trust_url(trustee), method: :delete %>
-			</td>
-		</tr>
-	<% end %>
-</table>
-<% end %>
+
+<div class="trustee-list">
+	<%= render partial: "transactions/trustee_list", local: @trustees %>
+</div>
 
 <br>
 
-<form action="<%= trusts_url %>" method="post">
+<form action="<%= trusts_url %>" method="post" data-remote="true">
 	<input type="hidden" 
 	name="authenticity_token" 
 	value="<%= form_authenticity_token %>">
@@ -46,39 +33,53 @@
 				<% user = User.find(entrustor.entrustor_id) %>
 				<tr id="<%= user.id %>">
 					<td>
-
-						<%= link_to user.username, trust_transactions_url(user.id) %>
+						
+						<a href="<%= trust_transactions_url(user.id) %>" data-remote="true">
+							<%= user.username %>
+						</a>
+						
 					</td>
 				</tr>
 			<% end %>
 		<% end %>
 	</div>
+	
+	
+	<div class="entrustor-transactions">
+		(Select an entrustor to see their transactions)
+	</div>
+	
 </section>
 
-<!-- 
 
 <script>
-$(document).ready(function(event){
-	
-  $("section").on("click", "a", function(event){
-    event.preventDefault();
+	$(document).ready(function(event){
+		$(".entrustors").on("ajax:success", "a", function(event, data){
+		  console.log(data);
 
-    var $a = $(this);
-    var url = $a.attr("href");
+		  $(".entrustor-transactions").html(data);
+		});
+	});
+</script>
 
-    console.log(url);
 
-    $.ajax({
-      url: url,
-      method: "GET",
-      dataType: "html",
-      success: function(data){
-        console.log(data);
-        $("#cat-featured").html(data);
-      }
-    });
-  });
-	
-	
-});
-</script> -->
+
+<!-- // <script>
+// $(document).ready(function(event){
+//   $("section").on("click", "a", function(event){
+//     event.preventDefault();
+//     var $a = $(this);
+//     var url = $a.attr("href");
+//     console.log(url);
+//     $.ajax({
+//       url: url,
+//       method: "GET",
+//       dataType: "html",
+//       success: function(data){
+//         console.log(data);
+//         $("#cat-featured").html(data);
+//       }
+//     });
+//   });
+// });
+ </script> -->

@@ -13,7 +13,11 @@ class TransactionsController < ApplicationController
     @entrustor = User.find(params[:trust_id])
     @entrustor_trans = Transaction.where(user_id: params[:trust_id], privacy: "shared")
 
-    render :show
+    if request.xhr?
+      render partial: "transactions/trans", locals: {user: @entrustor}
+    else
+      render :show
+    end
   end
 
   def edit
