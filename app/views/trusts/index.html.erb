@@ -38,18 +38,47 @@
 <br>
 
 <h4>People who have entrusted you (entrustors):</h4>
-<% if @entrustors.empty? %>
-		<p id="no-entrustors">Nobody trusts you :-(</p>
-<% else %>
-	<% @entrustors.each do |entrustor|  %>
-		<% user = User.find(entrustor.entrustor_id) %>
-		<tr id="<%= user.id %>">
-			<td>
+	<div class="entrustors">
+		<% if @entrustors.empty? %>
+				<p id="no-entrustors">Nobody trusts you :-(</p>
+		<% else %>
+			<% @entrustors.each do |entrustor|  %>
+				<% user = User.find(entrustor.entrustor_id) %>
+				<tr id="<%= user.id %>">
+					<td>
 
-				<%= link_to user.username, trust_transactions_url(user.id) %>
-			</td>
-		</tr>
-	<% end %>
-<% end %>
-
+						<%= link_to user.username, trust_transactions_url(user.id) %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</div>
 </section>
+
+<!-- 
+
+<script>
+$(document).ready(function(event){
+	
+  $("section").on("click", "a", function(event){
+    event.preventDefault();
+
+    var $a = $(this);
+    var url = $a.attr("href");
+
+    console.log(url);
+
+    $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "html",
+      success: function(data){
+        console.log(data);
+        $("#cat-featured").html(data);
+      }
+    });
+  });
+	
+	
+});
+</script> -->

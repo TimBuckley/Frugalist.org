@@ -41,6 +41,8 @@ class UsersController < ApplicationController
       @data_series << data_hash
     end
     
+    
+    
 
     if params.include?(:id)
       @user = User.find(params[:id])
@@ -67,4 +69,10 @@ class UsersController < ApplicationController
     
     
   end
+  
+  
+  def date_parse(orig_date)
+    
+  end
+  
 end

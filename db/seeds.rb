@@ -19,7 +19,7 @@ Transaction.create(user_id: 1,
                     amount: 3000,
                     category: "Education",
                     privacy: "shared",
-                    date: "2013-12-03"
+                    date: "2013-10-20"
                     )
                     
 Transaction.create(user_id: 1, 
@@ -32,7 +32,7 @@ Transaction.create(user_id: 1,
                     
 Transaction.create(user_id: 2, 
                     description: "SpaceX",
-                    amount: 50000000,
+                    amount: 500,
                     category: "Rockets",
                     privacy: "shared",
                     date: "2013-12-05"
@@ -40,7 +40,7 @@ Transaction.create(user_id: 2,
                     
 Transaction.create(user_id: 2, 
                     description: "Tesla Motors",
-                    amount: 7000,
+                    amount: 12.65,
                     category: "Batteries",
                     privacy: "shared",
                     date: "2013-12-05"
@@ -48,7 +48,7 @@ Transaction.create(user_id: 2,
                     
 Transaction.create(user_id: 2, 
                     description: "Mars Colony 1",
-                    amount: 100000000,
+                    amount: 125,
                     category: "Alien Technology",
                     privacy: "private",
                     date: "2013-12-10"
@@ -56,15 +56,15 @@ Transaction.create(user_id: 2,
                     
 Transaction.create(user_id: 3, 
                     description: "Orange Hair Pieces, inc.",
-                    amount: 2837,
+                    amount: 237,
                     category: "Hair Products",
                     privacy: "private",
                     date: "2013-12-19"
                     )
                     
 Transaction.create(user_id: 3, 
-                    description: "Golden Trump Statue",
-                    amount: 38387138,
+                    description: "Golden Trump Statuette",
+                    amount: 383,
                     category: "Entertainment",
                     privacy: "shared",
                     date: "2013-11-05"
@@ -72,7 +72,7 @@ Transaction.create(user_id: 3,
                     
 Transaction.create(user_id: 2, 
                     description: "Fricken' Lazers",
-                    amount: 630987,
+                    amount: 687,
                     category: "Entertainment",
                     privacy: "shared",
                     date: "2013-11-05"
