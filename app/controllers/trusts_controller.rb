@@ -30,11 +30,17 @@ class TrustsController < ApplicationController
       unless @trustee.save
         flash[:errors] = @trustee.errors.full_messages
       end
-    
+      
       @trustees = current_user.trustees
       @entrustors = current_user.entrustors
-      redirect_to trusts_url
+      
+      if request.xhr?
+        render partial: "transactions/trustee_list"# , locals: {cat: @cat}
+      else
+        redirect_to trusts_url
+      end
     end
+    
   end
   
   def show

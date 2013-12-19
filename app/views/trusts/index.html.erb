@@ -12,7 +12,13 @@
 
 <br>
 
-<form action="<%= trusts_url %>" method="post" data-remote="true">
+<form 
+	id="trustee-new-form"
+	action="<%= trusts_url %>" 
+	method="post" 
+	data-remote="true">
+	
+	
 	<input type="hidden" 
 	name="authenticity_token" 
 	value="<%= form_authenticity_token %>">
@@ -53,13 +59,23 @@
 
 
 <script>
-	$(document).ready(function(event){
-		$(".entrustors").on("ajax:success", "a", function(event, data){
-		  console.log(data);
+$(document).ready(function(event){
+	$(".entrustors").on("ajax:success", "a", function(event, data){
+	  console.log(data);
 
-		  $(".entrustor-transactions").html(data);
-		});
+	  $(".entrustor-transactions").html(data);
 	});
+
+	
+  $("#trustee-new-form").on("ajax:success", function(event, data){
+    console.log(data);
+
+    var $form = $(this);
+
+    $(".trustee-list").html(data);
+    $form[0].reset();
+  });
+});
 </script>
 
 
