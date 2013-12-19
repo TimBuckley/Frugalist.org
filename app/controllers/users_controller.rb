@@ -18,30 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    
-    valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
-    @trans = Transaction.where(user_id: valid_user_ids)
-    @categories = []
-    @trans.each {|e|  @categories << e.category if e.privacy == "shared"}
-    @categories.uniq!
-
-    @data_series = []
-
-    valid_user_ids.each do |user_id|
-      data_hash = {}
-      data_hash[:name] = User.find(user_id).username
-      
-      spend_array = []
-      @categories.each do |cat|
-        cat_spend_array = @trans.where(user_id: user_id, category: cat, privacy: "shared").pluck("amount")
-        spend_array << cat_spend_array.inject(0.0){|sum,x| sum + x }
-      end
-      data_hash[:data] = spend_array
-      
-      @data_series << data_hash
-    end
-    
-    
+    cat_spend_data
+    spend_over_time
     
 
     if params.include?(:id)
@@ -67,12 +45,56 @@ class UsersController < ApplicationController
     #   render :show
     # 
     
-    
   end
   
   
-  def date_parse(orig_date)
-    
+  def cat_spend_data
+    valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
+    @shared_trans = Transaction.where(user_id: valid_user_ids)
+    @categories = []
+    @shared_trans.each {|e|  @categories << e.category if e.privacy == "shared"}
+    @categories.uniq!
+
+    @cat_spend_series = []
+
+    valid_user_ids.each do |user_id|
+      data_hash = {}
+      data_hash[:name] = User.find(user_id).username
+      
+      spend_array = []
+      @categories.each do |cat|
+        cat_spend_array = @shared_trans.where(user_id: user_id, category: cat, privacy: "shared").pluck("amount")
+        spend_array << cat_spend_array.inject(0.0){|sum,x| sum + x }
+      end
+      data_hash[:data] = spend_array
+      
+      @cat_spend_series << data_hash
+    end
   end
+  
+  def spend_over_time
+    valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
+    @shared_trans = Transaction.where(user_id: valid_user_ids, privacy: "shared")
+
+    @time_spend_series = []
+
+    valid_user_ids.each do |user_id|
+      data_hash = {}
+      data_hash[:name] = User.find(user_id).username
+      
+      user_trans = @shared_trans.where(user_id: user_id)
+      
+      date_spend_pairs = []
+      
+      user_trans.each do |tran|
+        date_spend_pair = [DateTime.parse(tran.date).to_time.to_i, tran.amount.to_f]
+        date_spend_pairs << date_spend_pair
+      end
+      data_hash[:data] = date_spend_pairs
+      @time_spend_series << data_hash
+    end
+  end
+  
+  
   
 end
