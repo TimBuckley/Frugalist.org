@@ -14,17 +14,21 @@
 </script>
 
 <div class="graphs">
-	<div class="graph" id="spend-over-time" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div class="graph" id="spend-over-time" 
+	style="min-width: 310px; height: 400px; width: 480px; margin: 0 auto"></div>
 	<br> <br>
-	<div class="graph" id="category-spend" style="width:100%; height:400px;"></div>
+	<div class="graph" id="pie" 
+	style="min-width: 310px; height: 400px; width: 480px; margin: 0 auto"></div>
 	<br> <br>
-	<div class="graph" id="pie" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div class="graph" id="category-spend" 
+	style="width:100%; height:400px;"></div>
+
 </div>
 
 <script>
 	var transData = JSON.parse($("#bootstrapped_trans_json").html());
 	
-	console.log(transData.catSpendPieSeries);
+	// console.log(transData.catSpendPieSeries);
 	
 	
 	for (var i = 0; i < transData.timeSpendSeries.length; i++) {

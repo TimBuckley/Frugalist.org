@@ -179,7 +179,7 @@ h1 {
 }
 
 .logo{
-	background:white;
+	background:white;*/
 	margin: 0;
 }
 
@@ -239,6 +239,7 @@ nav.sidebar > ul > li > a {
 	color: white;
 	float: left;
 	text-align: left;
+	width: 111px;
 /*	margin: 0;*/
 /*	line-indent:0;*/
 }
