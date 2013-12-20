@@ -196,11 +196,16 @@ h1 {
 	position: relative;
 	float: right;
 	color: white;
-	margin: ;
+/*	margin: ;*/
 }
 
 .head-right > li.first-child {
-	background: red;
+
+}
+
+ul.head-right li#profile {
+	margin-top: 7px;
+	margin-right: 10px;
 }
 
 /*   -----  SIDEBAR  -----   */

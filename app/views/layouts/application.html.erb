@@ -43,7 +43,7 @@
 	  <ul class="head-right group">
 	    <li><%= button_to "Logout", session_url, {method: :delete, class: ["button", "button-logout"]} %></li>
 			
-			<li>Profile: <%= link_to current_user.username,  user_url(current_user), class: ["button", "button-profile"] %></li>
+			<li id="profile">Profile: <%= link_to current_user.username,  user_url(current_user), class: ["button", "button-profile"] %></li>
 	  </ul>
 	<% end %>
 	
