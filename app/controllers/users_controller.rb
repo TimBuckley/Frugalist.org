@@ -9,7 +9,8 @@ class UsersController < ApplicationController
       self.current_user = @user
       redirect_to user_url(@user)
     else
-      render :json => @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
+      render :new
     end
   end
 
@@ -87,7 +88,8 @@ class UsersController < ApplicationController
       date_spend_pairs = []
       
       user_trans.each do |tran|
-        date_spend_pair = [DateTime.parse(tran.date).to_time.to_i, tran.amount.to_f]
+        date_spend_pair = [tran.date, 
+          tran.amount.to_f]
         date_spend_pairs << date_spend_pair
       end
       data_hash[:data] = date_spend_pairs

@@ -12,14 +12,14 @@
  *= require_tree .
  */
 
-h1, button, h2, section, a, header, li, ul, div {
+h1, h2, h3, h4 button, section, a, header, li, ul, div, td, button {
   margin: 0;
   padding: 0;
   border: 0;
   font-family: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
-	
+	font-size: 15px;
 }
 
 .group:after {
@@ -41,6 +41,41 @@ body {
 	min-height: 700px;
 	width: 100%;
 }
+
+button, .button {
+  padding: 5px 10px;
+  background: #4479BA;
+  color: #FFF;
+  border : 0px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	outline: 0;
+}
+
+.button-add {background:#3498db;}
+.button-sign-in {}
+.button-sign-up {}
+.button-create-user {}
+.button-update {background:#f39c12;}
+.button-log-out {}
+.button-delete, .button-remove {background:#c0392b;}
+.button-profile {background: #2ecc71;}
+.button-send-message {background:#f39c12;}
+
+div.error-bar {
+	width: 100%;
+	display: block;
+	background: yellow;
+	height: auto;
+}
+
+div.error-msg {
+	float: left;
+	display: block;
+	margin: 10px;
+}
+
 
 /*-----  Sign-Up/Sign-In  -----*/
 

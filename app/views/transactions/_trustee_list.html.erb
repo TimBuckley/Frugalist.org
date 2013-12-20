@@ -11,7 +11,25 @@
 				<%= user.username %>
 			</td>
 			<td class="remove_button">
-				<%= button_to "Remove", trust_url(trustee), method: :delete %>
+				<!-- <form 
+					action="<%= trust_url(trustee) %>" 
+					class="button button-remove" 
+					method="post"
+					id="delete-trustee">
+					<div>
+						<input 
+						type="hidden" 
+						name="authenticity_token" 
+						value="<%= form_authenticity_token %>">
+						
+						<input type="hidden" name="_method" value="delete">
+						<input type="submit" value="Remove" id="delete-trustee">
+						
+					</div> -->
+				<%= button_to "Remove", trust_url(trustee), 
+				{ method: :delete,
+					class: "button button-remove", 
+						"data-remote" => "true"} %>
 			</td>
 		</tr>
 	<% end %>

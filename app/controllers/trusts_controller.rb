@@ -33,9 +33,9 @@ class TrustsController < ApplicationController
       
       @trustees = current_user.trustees
       @entrustors = current_user.entrustors
-      
+
       if request.xhr?
-        render partial: "transactions/trustee_list"# , locals: {cat: @cat}
+        render partial: "transactions/trustee_list"
       else
         redirect_to trusts_url
       end
@@ -55,7 +55,12 @@ class TrustsController < ApplicationController
     
     @trustees = current_user.trustees
     @entrustors = current_user.entrustors
-    redirect_to trusts_url
+
+    if request.xhr?
+      render partial: "transactions/trustee_list"
+    else
+      redirect_to trusts_url
+    end
   end
   
   def trustee_detail

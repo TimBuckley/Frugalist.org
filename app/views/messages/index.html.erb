@@ -6,10 +6,11 @@
 
 	<h3>From: <%= message.author.username %>, To: <%= message.recipient.username %>, Date: <%= message.created_at %> </h3>
 	
-	<p><%= message.body %> <%= button_to "Delete", message_url(message.id), method: :delete %></p>
+	<p><%= message.body %> <%= button_to "Delete", message_url(message.id), 
+		{method: :delete, class: "button button-delete"} %></p>
 	
 <% end %>
 
-<%= link_to "Send New Message", new_message_url %>
+<%= link_to "Send New Message", new_message_url, class: "button button-send-message"%>
 
 </section>

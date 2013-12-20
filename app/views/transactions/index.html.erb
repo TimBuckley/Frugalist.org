@@ -50,14 +50,14 @@
         </td>
 
       <td class="edit">
-        <input type="submit" value="Update">
+        <input type="submit" class="button button-update" value="Update">
       </td>
 
     </form>
 
     <td class="remove_button">
       <%= button_to "Remove", transaction_url(tran),
-      method: :delete %>
+      {method: :delete, class: ["button", "button-remove"]} %>
     </td>
 
   </tr>
@@ -86,7 +86,7 @@
       <option value="shared">shared</option>
     </select>
   </td>
-  <td class="add"><input type="submit" value="Add"></td>
+  <td class="add"><input class="button" type="submit" value="Add"></td>
   <td class="blank"></td>
 </form>
 

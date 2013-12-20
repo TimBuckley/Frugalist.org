@@ -25,7 +25,7 @@
 	
 	<label for="new_trustee">New Trustee:</label>
 	<input type="text" name="trust[trustee]" value="" id="new_trustee">
-	<input type="submit" value="Add">
+	<input type="submit" class="button button-add" value="Add">
 </form>
 
 <br>
@@ -61,7 +61,6 @@
 <script>
 $(document).ready(function(event){
 	$(".entrustors").on("ajax:success", "a", function(event, data){
-	  console.log(data);
 
 	  $(".entrustor-transactions").html(data);
 	});
@@ -69,13 +68,24 @@ $(document).ready(function(event){
 	
   $("#trustee-new-form").on("ajax:success", function(event, data){
     console.log(data);
-
     var $form = $(this);
 
     $(".trustee-list").html(data);
     $form[0].reset();
   });
+	
+	
+  // $("form.button-remove").on("ajax:success", function(event, data){
+  //   var $form = $(this);
+  // 		var $li = $form.closest(".trustee");
+  // 		
+  // 		console.log("hi")
+  // 
+  //   $(".trustee-list").html(data);
+  //   $form[0].reset();
+  // });
 });
+
 </script>
 
 

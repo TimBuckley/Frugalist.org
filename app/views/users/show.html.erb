@@ -20,11 +20,15 @@
 
 <script>
 	var transData = JSON.parse($("#bootstrapped_trans_json").html());
-
-
-	console.log(transData.catSpendSeries);
 	
-	console.log(transData.timeSpendSeries);
+	for (var i = 0; i < transData.timeSpendSeries.length; i++) {
+		
+		for (var j = 0; j < transData.timeSpendSeries[i]["data"].length; j++) {
+			var oldDate = transData.timeSpendSeries[i]["data"][j][0];
+			var newDate = Date.parse(oldDate);
+			transData.timeSpendSeries[i]["data"][j][0] = newDate;
+		}
+	}
 	
 	$(function () { 
 	    $('#category-spend').highcharts({
@@ -65,8 +69,9 @@
         xAxis: {
           type: 'datetime',
           dateTimeLabelFormats: { // don't display the dummy year
-            month: '%e. %b',
-            year: '%b'
+						// day: '',
+            month: '%b \'%y',
+            year: '%Y'
           }
         },
         yAxis: {
@@ -75,12 +80,12 @@
           },
           min: 0
         },
-        tooltip: {
-          formatter: function() {
-	          return '<b>'+ this.series.name +'</b><br/>'+
-	          Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y;
-          }
-        },
+        // tooltip: {
+        //   formatter: function() {
+        // 	          return '<b>'+ this.series.name +'</b><br/>'+
+        // 	          Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y;
+        //   }
+        // },
 				
 				series: transData.timeSpendSeries
 				// series: [{
