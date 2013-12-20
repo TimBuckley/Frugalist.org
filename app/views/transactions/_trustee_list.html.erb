@@ -1,4 +1,14 @@
 
+<div class="error-bars group">
+  <% if flash[:alert] && !flash[:alert].empty? %>
+    <% flash[:alert].each do |error| %>
+			<div class="error-msg">
+	      <%= error %>
+			</div>
+    <% end %>
+  <% end %>
+	<% flash[:alert] = nil %>
+</div>
 
 <% if @trustees.empty? %>
 	<p id="no-trustees">Ya gotta trust somebody...</p>
@@ -11,21 +21,6 @@
 				<%= user.username %>
 			</td>
 			<td class="remove_button">
-				<!-- <form 
-					action="<%= trust_url(trustee) %>" 
-					class="button button-remove" 
-					method="post"
-					id="delete-trustee">
-					<div>
-						<input 
-						type="hidden" 
-						name="authenticity_token" 
-						value="<%= form_authenticity_token %>">
-						
-						<input type="hidden" name="_method" value="delete">
-						<input type="submit" value="Remove" id="delete-trustee">
-						
-					</div> -->
 				<%= button_to "Remove", trust_url(trustee), 
 				{ method: :delete,
 					class: "button button-remove", 

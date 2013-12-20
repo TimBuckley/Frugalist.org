@@ -53,15 +53,23 @@ button, .button {
 	outline: 0;
 }
 
+
+.button-create-user, 
+.button-sign-in, 
+.button-sign-up, 
+.button-logout, 
+.button-profile { 
+	font-size: 16px;
+}
+
 .button-add {background:#3498db;}
-.button-sign-in {}
-.button-sign-up {}
-.button-create-user {}
 .button-update {background:#f39c12;}
 .button-log-out {}
 .button-delete, .button-remove {background:#c0392b;}
 .button-profile {background: #2ecc71;}
 .button-send-message {background:#f39c12;}
+
+/*   -----  ERRORS  -----   */
 
 div.error-bar {
 	width: 100%;
@@ -76,42 +84,82 @@ div.error-msg {
 	margin: 10px;
 }
 
+/*   -----  INPUT  -----   */
+
+/*input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="submit"] {
+    -webkit-appearance: none;
+    display: inline-block;
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    width: auto;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    color: inherit;
+  }
+	
+	*/
+
+
+.input {
+	
+}
+
 
 /*-----  Sign-Up/Sign-In  -----*/
 
-.sign-up, .sign-in {
-	width: 300px;
+h3.site-desc {
+	font-weight: bold;
+	font-size: 50px;
+	margin: 30px auto;
+	width:350px;
+	font-align: center;
+}
+
+div.sign-up, div.sign-in {
+	display: block;
+	margin-top: 20px;
+	background: white;
+	width: 500px;
+	margin: auto;
+	border: 1px solid lightgrey;
+	min-height: 500px;
+}
+
+form.sign-up, form.sign-in, h2.sign-in, h2.sign-up {
+	width: 200px;
 	margin: auto;
 }
 
-/*input {
-	width: 100px;
-}*/
-
-h1 {
-/*	border: 2px solid black;*/
-	float: left;
+h2.sign-in, h2.sign-up {
+	font-size: 26px;
 }
+
+.field-block {
+	display: block;
+	width: 200px;
+	margin: auto;
+}
+
+.form-sign-up-field, .form-sign-in-field {
+	float: right;
+	display: block;
+}
+
+.form-sign-up-label {
+	float:left;
+	display: block;
+}
+
 
 /*   -----  HEADER  -----   */
-
-.header-wrapper {
-	width: 1000px;
-	margin: auto;
-/*  border-left: 3px solid #333;*/
-/*  border-right: 3px solid #333;*/
-}
-
-.logo{
-	background:white;
-	margin: 0;
-/*	display: block;*/
-}
-
-ul.head-right > li{
-	display: block;
-/*	margin: 10px 20px;*/
-}
 
 header {
   background: #396540;   /* #27ae60; */
@@ -121,17 +169,38 @@ header {
 	overflow: hidden;
 }
 
+.header-wrapper {
+	width: 1000px;
+	margin: auto;
+}
+
+h1 {
+	float: left;
+}
+
+.logo{
+	background:white;
+	margin: 0;
+}
+
+
 .head-right {
+	background: #396540;
+	display: block;
 	float:right;
+	margin-top: 30px;
 }
 
 .head-right > li {
+	display: block;
 	position: relative;
 	float: right;
-	border: 1px solid grey;
-/*	padding: 5px;*/
-	background: lightgrey;
-	color: black;
+	color: white;
+	margin: ;
+}
+
+.head-right > li.first-child {
+	background: red;
 }
 
 /*   -----  SIDEBAR  -----   */
@@ -187,15 +256,24 @@ nav.sidebar > ul > li > a {
 	background: white;
 	float: right;
 	width: 850px;
-/*	padding: auto;*/
-	border-right: 1px solid lightgrey;
-	border-left: 1px solid lightgrey;
+	border-left: 1px solid #ccc;
 	min-height: 700px;
 }
 
+/*   ------ GRAPHS ------   */
 
-/* ------ Tables ------ */
+.graphs {
+	width: 500px;
+	margin: auto;
+}
 
+
+
+/*   ------ TABLES ------   */
+
+td.date {
+/*	max-width: 70px;*/
+}
 
 td {
 	width:auto;
@@ -308,4 +386,34 @@ table tr:hover td {
 	background: #f2f2f2;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+}
+
+/*   ------ Footer ------   */
+
+.footer {
+  width: 1000px;
+  margin: auto;
+  margin-bottom: 50px;
+  background: #fff;
+  color: #999;
+  border: 1px solid #ccc;
+}
+
+.footer-copy {
+  padding: 15px 20px;
+  float: left;
+}
+
+.footer-links {
+  padding: 15px 20px;
+  float: right;
+}
+
+.footer-links > ul > li {
+  float: left;
+  padding: 0 0 0 20px;
+}
+
+.footer a {
+  color: #999;
 }

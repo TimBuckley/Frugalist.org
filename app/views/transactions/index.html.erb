@@ -35,8 +35,10 @@
         <%= number_to_currency(tran.amount) %>
       </td>
       <td class="category">
-        <input type="text" name="transaction[category]"
-        value="<%= tran.category %>" id="category">
+				<div class="input">
+	        <input type="text" name="transaction[category]"
+	        value="<%= tran.category %>" id="category">
+				</div>
       </td>
 
       <td class="privacy">
@@ -72,14 +74,19 @@
   name="authenticity_token"
   value="<%= form_authenticity_token %>">
 
-  <td class="date"><input type="date" name="transaction[date]"
-  value="" id="date"></td>
-  <td class="description"><input type="text" name="transaction[description]"
-  value="description" id="description"></td>
-  <td class="amount"><input type="text" name="transaction[amount]"
-  value="amount" id="amount"></td>
-  <td class="category"><input type="text" name="transaction[category]"
-  value="" id="category"></td>
+  <td class="date">
+		<div class="input">
+			<input type="date" 
+			name="transaction[date]"
+		  value="" id="date">
+		</div>
+	</td>
+  <td class="description"><div class="input"><input type="text" name="transaction[description]"
+  value="description" id="description"></div></td>
+  <td class="amount"><div class="input"><input type="text" name="transaction[amount]"
+  value="amount" id="amount"></div></td>
+  <td class="category"><div class="input"><input type="text" name="transaction[category]"
+  value="" id="category"></div></td>
   <td class="privacy">
     <select name="transaction[privacy]">
       <option value="private" selected="selected">private</option>

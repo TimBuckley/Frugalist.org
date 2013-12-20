@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
     @convos = Convo.all
     @messages = Message.where(author_id: current_user.id)
     Message.where(recipient_id: current_user.id).each {|msg| @messages << msg}
+    @messages.sort! { |a,b| a.created_at <=> b.created_at }
     render :index
   end
 

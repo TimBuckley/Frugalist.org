@@ -12,14 +12,14 @@ class TrustsController < ApplicationController
     @entrustors = current_user.entrustors
     
     if user.nil?
-      flash[:errors] = ["No such user!"]
-      redirect_to trusts_url
+      flash[:alert] = ["No such user!"]
+      render partial: "transactions/trustee_list"
     elsif user == current_user
-      flash[:errors] = ["You can't entrust yourself."]
-      redirect_to trusts_url
+      flash[:alert] = ["You can't entrust yourself"]
+      render partial: "transactions/trustee_list"
     elsif !current_user.trustees.where(trustee_id: user.id).empty?
-      flash[:errors] = ["You've already entrusted this user."]
-      redirect_to trusts_url
+      flash[:alert] = ["You've already entrusted this user."]
+      render partial: "transactions/trustee_list"
     else
 
       @trustee = current_user.trustees.new(trustee_id: user.id)

@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 
   def show
     cat_spend_data
+    cat_spend_pie_data
     spend_over_time
-    
 
     if params.include?(:id)
       @user = User.find(params[:id])
@@ -73,6 +73,28 @@ class UsersController < ApplicationController
     end
   end
   
+  def cat_spend_pie_data
+    valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
+    @shared_trans = Transaction.where(user_id: valid_user_ids)
+    @categories = []
+    @shared_trans.each {|e|  @categories << e.category if e.privacy == "shared"}
+    @categories.uniq!
+
+    @cat_spend_pie_series = []
+    
+    @categories.each do |cat|
+      @cat_trans = @shared_trans.where(category: cat)
+      total_cat_spend = 0
+      
+      @cat_trans.each do |cat_tran|
+        total_cat_spend += cat_tran.amount
+      end
+      
+      @cat_spend_pie_series << [cat, total_cat_spend.to_f]
+    end
+  end
+  
+  
   def spend_over_time
     valid_user_ids = current_user.entrustors.pluck("entrustor_id") + [current_user.id]
     @shared_trans = Transaction.where(user_id: valid_user_ids, privacy: "shared")
@@ -96,7 +118,5 @@ class UsersController < ApplicationController
       @time_spend_series << data_hash
     end
   end
-  
-  
-  
+    
 end
