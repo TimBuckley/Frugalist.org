@@ -8,20 +8,17 @@ class TrustsController < ApplicationController
   
   def create
     user = User.find_by_username(params[:trust][:trustee])
+    @trustees = current_user.trustees
+    @entrustors = current_user.entrustors
+    
     if user.nil?
       flash[:errors] = ["No such user!"]
-      @trustees = current_user.trustees
-      @entrustors = current_user.entrustors
       redirect_to trusts_url
     elsif user == current_user
       flash[:errors] = ["You can't entrust yourself."]
-      @trustees = current_user.trustees
-      @entrustors = current_user.entrustors
       redirect_to trusts_url
     elsif !current_user.trustees.where(trustee_id: user.id).empty?
       flash[:errors] = ["You've already entrusted this user."]
-      @trustees = current_user.trustees
-      @entrustors = current_user.entrustors
       redirect_to trusts_url
     else
 
