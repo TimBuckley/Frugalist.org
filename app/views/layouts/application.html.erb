@@ -25,20 +25,26 @@
 	
 	
 	<div class="header-wrapper group">
+    
+		<a href="<%= user_url(current_user) %>">
+    
+      <div class="logo-test">
+        <div class="logo-test2"></div>
+      </div>
+    
+      <span class="main-title">
+        Frugalist
+      </span>
+    </a>
+    
 
 	<% if current_user.nil? %>
-	
+
 	<h1 class="logo">
 		<a href="<%= new_session_url %>"><img src="https://s3.amazonaws.com/frugalist-dev/frugalist-logo.png" width="275" height="91" alt="Logo"></a>
 	</h1>
 
 	<% else %>
-
-	<h1 class="logo">
-		<a href="<%= user_url(current_user) %>">
-			<img src="https://s3.amazonaws.com/frugalist-dev/frugalist-logo.png" width="275" height="91" alt="Logo">
-		</a>
-	</h1>
 
 	  <ul class="head-right group">
 	    <li><%= button_to "Logout", session_url, {method: :delete, class: ["button", "button-logout"]} %></li>
@@ -47,6 +53,8 @@
 	  </ul>
 	<% end %>
 	
+  
+  
 </div>
 	
 </header>

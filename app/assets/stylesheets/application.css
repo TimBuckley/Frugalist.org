@@ -8,18 +8,31 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+
  */
+
+
+
+
+
+
+
+
+
+
+
 
 h1, h2, h3, h4 button, section, a, header, li, ul, div, td, button {
   margin: 0;
   padding: 0;
   border: 0;
+	
   font-family: inherit;
-	vertical-align: baseline;
 	text-decoration: none;
-	font-size: 15px;
+	
+  font-size: 14px;
+  line-height: 37px;
 }
 
 .group:after {
@@ -34,12 +47,13 @@ ul, li {
 }
 
 body {
-	font-family: helvetica;
+	font-family: Helvetica;
 	color: #3b3b3b;
 	background: #ecf0f1;
 	overflow-y: scroll;
 	min-height: 700px;
 	width: 100%;
+	margin: 0px;
 }
 
 button, .button {
@@ -161,17 +175,14 @@ h2.sign-in, h2.sign-up {
 
 /*   -----  HEADER  -----   */
 
-header {
-  background: #396540;   /* #27ae60; */
-  border-bottom: 3px solid #333;
+header {   /* #27ae60; */
 	display: block;
 	height: 90px;
 	overflow: hidden;
 }
 
+
 .header-wrapper {
-	width: 1000px;
-	margin: auto;
 }
 
 h1 {
@@ -185,18 +196,18 @@ h1 {
 
 
 .head-right {
-	background: #396540;
 	display: block;
 	float:right;
-	margin-top: 30px;
+	padding: 11px;
+	margin-top: 0px;
+	border-bottom-left-radius: 4px;
 }
 
 .head-right > li {
 	display: block;
 	position: relative;
 	float: right;
-	color: white;
-/*	margin: ;*/
+
 }
 
 .head-right > li.first-child {
@@ -204,16 +215,15 @@ h1 {
 }
 
 ul.head-right li#profile {
-	margin-top: 7px;
-	margin-right: 10px;
+    margin-right: 6px;
 }
 
 /*   -----  SIDEBAR  -----   */
 
 nav.sidebar {
 	float: left;
-	background: #396539;
-	width: 110px;
+	background: #27ae60;
+	width: 129px;
 }
 
 nav.sidebar > ul {
@@ -223,15 +233,14 @@ nav.sidebar > ul {
 }
 
 nav.sidebar > ul > li {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #FDFDFD;
 	display: block;
 	padding: auto;
 }
 
 nav.sidebar > ul > li > a {
   display: block;
-  padding: 5px;
-  font-weight: bold;
+  padding: 8px;
 }
 
 .sidebar-button {
@@ -239,10 +248,14 @@ nav.sidebar > ul > li > a {
 	color: white;
 	float: left;
 	text-align: left;
-	width: 111px;
-/*	margin: 0;*/
-/*	line-indent:0;*/
+	width: 129px;
+	background: hsl(145, 63%, 42%);
 }
+	
+.sidebar-button:hover {
+	background: hsl(145, 63%, 52%);
+}
+
 
 nav.sidebar > ul > li > a {
 	color: white;
@@ -266,11 +279,12 @@ nav.sidebar > ul > li > a {
 	min-height: 700px;
 }
 
-/*   ------ GRAPHS ------   */
+/*   ------ * ------   */
 
 .graphs {
-	width: 500px;
+	width: 100%;
 	margin: auto;
+/*  clear: left;*/
 }
 
 
@@ -422,4 +436,34 @@ table tr:hover td {
 
 .footer a {
   color: #999;
+}
+
+
+
+.logo-test {
+  border-radius: 50%;
+  background: hsl(120, 100%, 25%);
+  width: 55px;
+  height: 55px;
+  float: left;
+}
+
+.logo-test2 {
+  border-radius: 50%;
+  background: hsl(120, 100%, 35%);
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  opacity: .4;
+  position: relative;
+  top: 7px;
+}
+
+.main-title {
+  font-size: 34px;
+  float: left;
+  line-height: 56px;
+  display: block;
+  height: 56px;
+  padding-left: 7px;
 }

@@ -15,10 +15,10 @@
 
 <div class="graphs">
 	<div class="graph" id="spend-over-time" 
-	style="min-width: 310px; height: 400px; width: 480px; margin: 0 auto"></div>
+	style="width: 100%; margin: 0 auto"></div>
 	<br> <br>
 	<div class="graph" id="pie" 
-	style="min-width: 310px; height: 400px; width: 480px; margin: 0 auto"></div>
+	style="width: 100%; margin: 0 auto"></div>
 	<br> <br>
 	<div class="graph" id="category-spend" 
 	style="width:100%; height:400px;"></div>
@@ -30,7 +30,19 @@
 	
 	// console.log(transData.catSpendPieSeries);
 	
-	
+Highcharts.setOptions({
+  //colors: ['#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263',      '#6AF9C4']
+  colors: [
+  '#28AF60',
+  '#28AFA3',
+  '#2876AF',
+  '#2833AF',
+  '#6028AF',
+  '#A328AF',
+  '#AF2876'
+  ]
+});
+      
 	for (var i = 0; i < transData.timeSpendSeries.length; i++) {
 		
 		for (var j = 0; j < transData.timeSpendSeries[i]["data"].length; j++) {
