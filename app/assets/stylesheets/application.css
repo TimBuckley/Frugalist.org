@@ -11,6 +11,7 @@
  */
 
 
+
 h1, h2, h3, h4 button, section, a, header, li, ul, div, td, button {
   margin: 0;
   padding: 0;
@@ -252,8 +253,12 @@ nav.sidebar > ul > li > a {
 
 /*   -----  MAIN CONTENT  -----   */
 
+section.main-wrapper {
+	width: 1000px;
+	margin: auto;
+}
 
-.main {
+section.main {
 	width: 1000px;
 	margin: auto;
 }
@@ -262,8 +267,8 @@ nav.sidebar > ul > li > a {
 	padding: 10px;
 	background: white;
 	float: right;
-	width: 850px;
-	border-left: 1px solid #ccc;
+	width: 849px;
+	border: 1px solid #ccc;
 	min-height: 700px;
 }
 
@@ -408,9 +413,6 @@ table tr:hover td {
   width: 1000px;
   margin: auto;
   margin-bottom: 50px;
-  background: #fff;
-  color: #999;
-  border: 1px solid #ccc;
 }
 
 .footer-copy {
@@ -453,11 +455,12 @@ table tr:hover td {
   top: 7px;
 }
 
-.main-title {
+span.main-title {
   font-size: 34px;
   float: left;
   line-height: 56px;
   display: block;
   height: 56px;
   padding-left: 7px;
+  color: black;
 }

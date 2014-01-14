@@ -26,17 +26,20 @@
   <% logo_ref = current_user.nil? ? new_session_url : user_url(current_user) %>
 	
 	<div class="header-wrapper group">
-    
+    <div class="header">
 		<a href="<%= logo_ref %>">
     
       <div class="logo-test">
         <div class="logo-test2"></div>
       </div>
+    </a>
     
       <span class="main-title">
         Frugalist
       </span>
-    </a>
+    </div>
+    
+    
     
 
 	<% if current_user.nil? %>
@@ -63,6 +66,10 @@
 <section class="main group">
 <%= yield %>
 
+
+
+</section>
+
 <% if !current_user.nil? %>
 	<footer class="footer group">
 		<small class="footer-copy">
@@ -75,10 +82,6 @@
 		</nav>
 	</footer>
 <% end %>
-
-</section>
-
-
 
 
 
