@@ -172,6 +172,9 @@ header {   /* #27ae60; */
 
 
 .header-wrapper {
+	display: block;
+	width: 1000px;
+  margin: 20px auto;
 }
 
 h1 {
