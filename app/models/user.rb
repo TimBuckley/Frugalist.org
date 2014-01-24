@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+
   attr_accessible :username, :email, :password
   attr_reader :password
+  acts_as_messageable
 
   validates :password_digest, presence: { message: "Password can't be blank" }
   validates :password, length: { minimum: 6, allow_nil: true }
