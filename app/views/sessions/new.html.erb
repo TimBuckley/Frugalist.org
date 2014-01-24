@@ -39,10 +39,17 @@
 						new_user_url, 
 						class: ["button", "button-sign-up"]%>
               <br>
-      <a class="button guest" href="#" value="Sign In As Guest!">Sign In As Guest!</a>
+      <a class="button button-guest" href="#" value="Sign In As Guest!">Sign In As Guest!</a>
       
     
 
 	</form>
 </section>
-
+<script>
+$(document).ready(function() {
+  $(".button-guest").click(function() {
+    $(".form-sign-in-field#user_email").val("tim@gmail.com");
+    $(".form-sign-in-field#user_password").val("123456");
+  });
+});
+</script>

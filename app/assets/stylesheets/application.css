@@ -71,6 +71,7 @@ button, .button {
 .button-delete, .button-remove {background:#c0392b;}
 .button-profile {background: #2ecc71;}
 .button-send-message {background:#f39c12;}
+.button-guest {background: #2ecc71;}
 
 /*   -----  ERRORS  -----   */
 
