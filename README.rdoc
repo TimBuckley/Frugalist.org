@@ -1,3 +1,20 @@
 == Frugalist
 
 A social Mint app by Tim Buckley
+
+Technologies:
+
+* Ruby on Rails
+* PostgreSQL
+* jQuery
+* AJAX
+* Highcharts.js
+
+To-Do:
+- Nokogiri
+
+Nokogiri is a ruby gem that can be used to scrape data from other websites. In the case of Frugalist, this could be used to scrap transaction details off of a banking website to add to the user's transactions list.
+
+- Mailboxer
+
+Mailboxer is another Ruby gem which can be used to implement conversation/messaging/notification features amongst users.
